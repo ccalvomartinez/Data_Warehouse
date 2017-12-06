@@ -1,4 +1,4 @@
-# Data Warehoes
+# Data Warehouse
 ## Creación de un sistema Data Warehouse desde datos ficticios de una empresa de comunicaciones.
 Tenemos tres sitemas diferetes, a saber, `CRM`, `IVR` y `Facturador`.
 Ya tenemos los datos cargados en `STAGE` y el modelo de clientes ya está cargado en `ODS`.
