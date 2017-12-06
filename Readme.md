@@ -22,7 +22,7 @@ El sistema `Facturador` tiene una tabla
 
 ### Productos
 #### Análisis
-Análisis de la tabla de productos: [Script de análisis de productos](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ANALISIS_TABLA_PRODUCTOS(SERVICIOS).sql)
+Análisis de la tabla de `Productos`: [Script de análisis de Productos](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ANALISIS_TABLA_PRODUCTOS(SERVICIOS).sql)
 
 Totales | Valores
 ------------ | -------------
@@ -59,10 +59,10 @@ De aquí podemos concluir que esto no es una tabla de productos si no, más bien
 
 Además, podemos sacar a una dimensión el producto relacionado con el servicio (`PRODUCT_NAME`), el canal (`CHANNEL`) y también sacaremos la dirección a otra tabla tal y como se hizo con los clientes.
 
-Será importante comprobar que todos los `CUSTOMER_ID` estén en la tabla de clientes y en caso de que no estén, insertarlos con ID significativos para, posteriormente, realizar un informe con estos "errores".
+Será importante comprobar que todos los `CUSTOMER_ID` estén en la tabla de clientes y en caso de que no estén, insertarlos con IDs significativos para, posteriormente, realizar un informe con estos "errores".
 
 #### Modelo
-[Modelo ODS de servicios](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ModeloServicios.pdf)
+[Modelo ODS de Servicios](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ModeloServicios.pdf)
 
 #### Creación de tablas
 [Script de creación de tablas de Servicios](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/CREAR_TABLAS_ODS_SERVICIOS.sql)
@@ -84,7 +84,7 @@ Tabla | Número de filas
  
 ### Orders
 #### Análisis
-Análisis de la tabla de orders: [Script de análisis de orders](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ANALISIS_TABLA_ORDERS.sql)
+Análisis de la tabla de `Orders`: [Script de análisis de Orders](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ANALISIS_TABLA_ORDERS.sql)
 
 Totales | Valores
 ------------ | -------------
@@ -106,16 +106,16 @@ Lo primero que llama la atención es que el `ID` no es único, por tanto no lo p
 
 Podemos sacar a una dimensión el la fase (`PHASE`), el canal (`CHANNEL`) y el agente (`AGENT`).
 
-Además, relacionaremos `ORDER` con la tabla `ODS_HC_SERVICOS`. Será importante comprobar que todos los `ORDER` estén en la tabla de SERVICIOS y en caso de que no estén, insertarlos con ID significativos para, posteriormente, realizar un informe con estos "errores".
+Además, relacionaremos `ORDER` con la tabla `ODS_HC_SERVICOS`. Será importante comprobar que todos los `ORDER` estén en la tabla de Servicios y en caso de que no estén, insertarlos con IDs significativos para, posteriormente, realizar un informe con estos "errores".
 
 #### Modelo
-[Modelo ODS de ordenes](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/OrdenesModel.pdf)
+[Modelo ODS de Órdenes](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/OrdenesModel.pdf)
 
 #### Creación de tablas
-[Script de creación de tablas de Ordenes](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/CREAR_TABLAS_ODS_ORDENES.sql)
+[Script de creación de tablas de Órdenes](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/CREAR_TABLAS_ODS_ORDENES.sql)
 
 #### Población de tablas
-[Script de población de tablas de Ordenes](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/POBLAR_TABLAS_ORDENES.sql)
+[Script de población de tablas de Órdenes](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/POBLAR_TABLAS_ORDENES.sql)
 
 #### Conteo de filas del modelo
 
@@ -129,7 +129,7 @@ Tabla | Número de filas
 ## Creación de modelos ODS para las tablas de IVR
 ### Contactos
 #### Análisis
-Análisis de la tabla de contactos: [Script de análisis de contactos](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ANALISIS_TABLA_CONTACTOS.sql)
+Análisis de la tabla de `Contactos`: [Script de análisis de Contactos](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ANALISIS_TABLA_CONTACTOS.sql)
 
 Totales | Valores
 ------------ | -------------
@@ -152,16 +152,16 @@ Totales | Valores
 
 Lo primero que llama la atención es que el `ID` no es único, por tanto no lo podremos usar como PRIMARY KEY de nuestra tabla de `ODS`.
 También vemos que, en realidad es una tabla de llamadas recibidas, por tanto llamaremos a nuestra tabla `ODS_HC_LLAMADAS`
-Podemos sacar a una dimensión el servico, al que nosotros llamaremos departamento (`SERVICE`) y el agente (`AGENT`), el mismo de la tabla anterior.
+Podemos sacar a una dimensión el servicio (`SERVICE`), al que nosotros llamaremos departamento para no confundirlo con la tabla de servicios y el agente (`AGENT`), el mismo de la tabla anterior.
 
 #### Modelo
-[Modelo ODS de llamadas](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ModeloLlamadas.pdf)
+[Modelo ODS de Llamadas](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ModeloLlamadas.pdf)
 
 #### Creación de tablas
-[Script de creación de tablas de llamadas](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/CREAR_TABLAS_ODS_LLAMADAS.sql)
+[Script de creación de tablas de Llamadas](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/CREAR_TABLAS_ODS_LLAMADAS.sql)
 
 #### Población de tablas
-[Script de población de tablas de llamadas](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/POBLAR_TABLA_LLAMADAS.sql)
+[Script de población de tablas de Llamadas](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/POBLAR_TABLA_LLAMADAS.sql)
 
 #### Conteo de filas del modelo
 
