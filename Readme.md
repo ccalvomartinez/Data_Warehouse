@@ -126,7 +126,7 @@ Tabla | Número de filas
  ODS_DM_FASES | 9
  ODS_DM_AGENTES | 694
  
- 
+## Creación de modelos ODS para las tablas de IVR
 ### Contactos
 #### Análisis
 Análisis de la tabla de contactos: [Script de análisis de contactos](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ANALISIS_TABLA_CONTACTOS.sql)
@@ -146,8 +146,8 @@ Totales | Valores
  TOTAL_DIS_SERVICE | 6
  TOTAL_FLG_TRANSFER | 202717
  TOTAL_DIS_FLG_TRANFER | 2
- TOTAL_AGENT | 
- TOTAL_DIS_AGENT | 
+ TOTAL_AGENT | 194739
+ TOTAL_DIS_AGENT | 593
 
 
 Lo primero que llama la atención es que el `ID` no es único, por tanto no lo podremos usar como PRIMARY KEY de nuestra tabla de `ODS`.
@@ -170,3 +170,5 @@ Tabla | Número de filas
  ODS_HC_LLAMADAS | 202717
  ODS_DM_AGENTES | 694
  ODS_DM_DEPARTAMENTOS | 8
+ 
+ ## Creación de modelos ODS para las tablas de Facturador
