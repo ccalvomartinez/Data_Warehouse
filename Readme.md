@@ -55,8 +55,10 @@ Totales | Valores
  TOTAL_PRODUCT_COUNTRY | 78274
  TOTAL_DIS_PRODUCT_COUNTRY | 1
 
-De aquí podemos concluir que esto no es una tabla de productos si no, mas bien una tabla de servicios y así llamaremos a nuestra tabla de `ODS`.
+De aquí podemos concluir que esto no es una tabla de productos si no, más bien, una tabla de servicios y así llamaremos a nuestra tabla de `ODS`.
+
 Además, podemos sacar a una dimensión el producto relacionado con el servicio (`PRODUCT_NAME`), el canal (`CHANNEL`) y también sacaremos la dirección a otra tabla tal y como se hizo con los clientes.
+
 Será importante comprobar que todos los `CUSTOMER_ID` estén en la tabla de clientes y en caso de que no estén, insertarlos con ID significativos para, posteriormente, realizar un informe con estos "errores".
 
 #### Modelo
@@ -79,3 +81,92 @@ Tabla | Número de filas
  ODS_DM_CANALES | 6
  ODS_DM_CIUDADES_ESTADO | 158
  ODS_DM_PAISES | 3
+ 
+### Orders
+#### Análisis
+Análisis de la tabla de orders: [Script de análisis de orders](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ANALISIS_TABLA_ORDERS.sql)
+
+Totales | Valores
+------------ | -------------
+ TOTAL_REGISTROS | 360067
+ TOTAL_ID | 360067
+ TOTAL_DIS_ID | 324081
+ TOTAL_ORDER | 360067
+ TOTAL_DIS_ORDER | 78000
+ TOTAL_PHASE | 360067
+ TOTAL_DIS_PHASE | 7
+ TOTAL_AGENT | 360032
+ TOTAL_DIS_AGENT | 100
+ TOTAL_START_DT | 360067
+ TOTAL_DIS_START_DT | 342069
+ TOTAL_END_DT | 282067
+ TOTAL_END_DT | 270382
+
+Lo primero que llama la atención es que el `ID` no es único, por tanto no lo podremos usar como PRIMARY KEY de nuestra tabla de `ODS`.
+
+Podemos sacar a una dimensión el la fase (`PHASE`), el canal (`CHANNEL`) y el agente (`AGENT`).
+
+Además, relacionaremos `ORDER` con la tabla `ODS_HC_SERVICOS`. Será importante comprobar que todos los `ORDER` estén en la tabla de SERVICIOS y en caso de que no estén, insertarlos con ID significativos para, posteriormente, realizar un informe con estos "errores".
+
+#### Modelo
+[Modelo ODS de ordenes](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/OrdenesModel.pdf)
+
+#### Creación de tablas
+[Script de creación de tablas de Ordenes](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/CREAR_TABLAS_ODS_ORDENES.sql)
+
+#### Población de tablas
+[Script de población de tablas de Ordenes](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/POBLAR_TABLAS_ORDENES.sql)
+
+#### Conteo de filas del modelo
+
+Tabla | Número de filas
+------------ | -------------
+ ODS_HC_ORDENES | 360067
+ ODS_HC_SERVICIOS | 78495
+ ODS_DM_FASES | 9
+ ODS_DM_AGENTES | 694
+ 
+ 
+### Contactos
+#### Análisis
+Análisis de la tabla de contactos: [Script de análisis de contactos](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ANALISIS_TABLA_CONTACTOS.sql)
+
+Totales | Valores
+------------ | -------------
+ TOTAL_REGISTROS | 202717
+ TOTAL_ID | 202717
+ TOTAL_DIS_ID | 150000
+ TOTAL_PHONE_NUMBER | 185018
+ TOTAL_DIS_PHONE_NUMBER | 18225
+ TOTAL_START_DATETIME | 202717
+ TOTAL_DIS_START_DATETIME | 201098
+ TOTAL_END_DATETIME | 186535
+ TOTAL_DIS_END_DATETIME | 183677
+ TOTAL_SERVICE | 202502
+ TOTAL_DIS_SERVICE | 6
+ TOTAL_FLG_TRANSFER | 202717
+ TOTAL_DIS_FLG_TRANFER | 2
+ TOTAL_AGENT | 
+ TOTAL_DIS_AGENT | 
+
+
+Lo primero que llama la atención es que el `ID` no es único, por tanto no lo podremos usar como PRIMARY KEY de nuestra tabla de `ODS`.
+También vemos que, en realidad es una tabla de llamadas recibidas, por tanto llamaremos a nuestra tabla `ODS_HC_LLAMADAS`
+Podemos sacar a una dimensión el servico, al que nosotros llamaremos departamento (`SERVICE`) y el agente (`AGENT`), el mismo de la tabla anterior.
+
+#### Modelo
+[Modelo ODS de llamadas](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ModeloLlamadas.pdf)
+
+#### Creación de tablas
+[Script de creación de tablas de llamadas](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/CREAR_TABLAS_ODS_LLAMADAS.sql)
+
+#### Población de tablas
+[Script de población de tablas de llamadas](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/POBLAR_TABLA_LLAMADAS.sql)
+
+#### Conteo de filas del modelo
+
+Tabla | Número de filas
+------------ | -------------
+ ODS_HC_LLAMADAS | 202717
+ ODS_DM_AGENTES | 694
+ ODS_DM_DEPARTAMENTOS | 8
