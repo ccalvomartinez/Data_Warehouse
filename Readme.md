@@ -151,8 +151,12 @@ Totales | Valores
 
 
 Lo primero que llama la atención es que el `ID` no es único, por tanto no lo podremos usar como PRIMARY KEY de nuestra tabla de `ODS`.
-También vemos que, en realidad es una tabla de llamadas recibidas, por tanto llamaremos a nuestra tabla `ODS_HC_LLAMADAS`
+
+También vemos que, en realidad es una tabla de llamadas recibidas, por tanto llamaremos a nuestra tabla `ODS_HC_LLAMADAS`.
+
 Podemos sacar a una dimensión el servicio (`SERVICE`), al que nosotros llamaremos departamento para no confundirlo con la tabla de servicios y el agente (`AGENT`), el mismo de la tabla anterior.
+
+Sería interesante conectar esta tabla de llamadas con la tabla de clientes. El problema es que e único dato que nos permite el cruce es el teléfono y me parece un dato demasiado débil sobre el cliente. Puede ser que el cliente esté llamando desde un número que no tengamos almacenado o que varios clientes compartan número de contacto. Por tanto, lo razonable es que los sistemas vinieran integrados de origen.
 
 #### Modelo
 [Modelo ODS de Llamadas](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ModeloLlamadas.pdf)
