@@ -222,3 +222,26 @@ Tabla | Número de filas
  ODS_DM_METODOS_PAGO | 5
  ODS_DM_CICLOS_FACTURACION | 4
  
+## Resumen
+
+[Modelo completo ODS](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ModeloODS.pdf)
+
+### Conteo de filas del modelo
+Tabla | Número de filas
+------------ | -------------
+ ODS_HC_CLIENTES | 20002
+ ODS_HC_SERVICIOS | 78495
+ ODS_HC_ORDENES | 360067
+ ODS_HC_LLAMADAS | 202717
+ ODS_HC_FACTURAS | 420000
+ ODS_HC_DIRECCIONES | 95769
+ ODS_DM_CIUDADES_ESTADO | 158
+ ODS_DM_PAISES | 3
+ ODS_DM_PRODUCTOS | 8
+ ODS_DM_CANALES | 6
+ ODS_DM_FASES | 9
+ ODS_DM_AGENTES | 694
+ ODS_DM_DEPARTAMENTOS | 8
+ ODS_DM_METODOS_PAGO | 5
+ ODS_DM_CICLOS_FACTURACION | 4
+ 
