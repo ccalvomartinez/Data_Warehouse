@@ -64,4 +64,9 @@ Por otra parte he añadido las relaciones de integración entre los sistemas del
 7. Las tablas deben estar relativamente normalizadas (PK, Fks, etc.) aunque eso no nos impedirá crear tablas de conveniencia para consultas costosas que se realicen repetidas veces el en trabajo diario.
 8. La teoría es muy bonita, pero hay que trabajar con lo que se tiene, lo que a veces significa transgredir las "normas" o ser inventivo.
 
+## Nivel de SQL antes y después.
+* Antes: Dejad que las queries se acerquen a mí.
+* Después: Todo lo que quiso saber sobre SQL y no se atrevió a preguntar.
 
+## ¿Algún comentario extra?
+Necesito más Gigas de RAM en mi ordenador.
