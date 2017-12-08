@@ -245,3 +245,5 @@ Tabla | Número de filas
  ODS_DM_METODOS_PAGO | 5
  ODS_DM_CICLOS_FACTURACION | 4
  
+# Respuestas a las preguntas de la práctica
+[Respuestas a las preguntas](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/RespuestasPr%C3%A1ctica.md)
