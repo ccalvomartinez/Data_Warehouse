@@ -172,3 +172,53 @@ Tabla | Número de filas
  ODS_DM_DEPARTAMENTOS | 8
  
  ## Creación de modelos ODS para las tablas de Facturador
+
+### Facturas
+#### Análisis
+Análisis de la tabla de `Facturas`: [Script de análisis de Facturas](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ANALISIS_TABLA_FACTURAS.sql)
+
+Totales | Valores
+------------ | -------------
+ TOTAL_REGISTROS | 420000
+ TOTAL_BILL_REF_NO | 420000
+ TOTAL_DIS_BILL_REF_NO | 420000
+ TOTAL_CUSTOMER_ID | 420000
+ TOTAL_DIS_CUSTOMER_ID | 20000
+ TOTAL_START_DATE | 420000
+ TOTAL_DIS_START_DATE | 40
+ TOTAL_END_DATE | 420000
+ TOTAL_DIS_END_DATE | 20
+ TOTAL_STATEMENT_DATE | 420000
+ TOTAL_DIS_STATEMENT_DATE | 40
+ TOTAL_PAYMENT_DATE | 420000
+ TOTAL_DIS_PAYMENT_DATE | 400
+ TOTAL_BILL_CYCLE | 420000
+ TOTAL_DIS_BILL_CYCLE | 2
+ TOTAL_AMOUNT | 420000
+ TOTAL_DIS_AMOUNT | 5604
+ TOTAL_BILL_METHOD | 420000
+ TOTAL_DIS_BILL_METHOD | 3
+
+
+Podemos sacar a una dimensión el método de pago (`BILL_METHOD`) y el cilco de facturación (`BILL_CYCLE`).
+
+Será importante comprobar que todos los `CUSTOMER_ID` estén en la tabla de clientes y en caso de que no estén, insertarlos con IDs significativos para, posteriormente, realizar un informe con estos "errores".
+
+#### Modelo
+[Modelo ODS de Facturas](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ModeloFacturas.pdf)
+
+#### Creación de tablas
+[Script de creación de tablas de Facturas](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/CREAR_TABLAS_ODS_FACTURAS.sql)
+
+#### Población de tablas
+[Script de población de tablas de Facturas](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/POBLAR_TABLA_FACTURAS.sql)
+
+#### Conteo de filas del modelo
+
+Tabla | Número de filas
+------------ | -------------
+ ODS_HC_FACTURAS | 420000
+ ODS_HC_CLIENTES | 20002
+ ODS_DM_METODOS_PAGO | 5
+ ODS_DM_CICLOS_FACTURACION | 4
+ 
