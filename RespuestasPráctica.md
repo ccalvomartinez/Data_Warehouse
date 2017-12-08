@@ -1,5 +1,6 @@
 ## ¿Por qué en el modelo de DIRECCIONES dejo en la misma tabla las CIUDADES y los ESTADOS y no los separo en dos tablas distintas para ser más estricta con la jerarquía?
 Porque hay ciudades con el mismo nombre en diferentes estados y si queremos hacer un análisis por ciudad siempre vamos a tener que cruzar con la tabla de estados para obtener la tupla CIUDAD-ESTADO.
+
 Otra razón puede ser que no nos interese el análisis por estados. Aunque nos interesara en un futuro, no sería difícil dividir las tablas, porque es una cuestion "interna".
 
 ## ¿Serías capaz de separar el campo DE_DIRECCION  de la tabla direcciones en dos campos NOMBRE_VIA y NUM_VIA?
@@ -11,7 +12,7 @@ FROM ODS.ODS_HC_DIRECCIONES
 WHERE ID_DIRECCION < 999998
 ```
 
-## Cambios en los sistemas de origen teneiendo en cuenta:
+## Cambios en los sistemas de origen teniendo en cuenta:
 ### Data quality
 1. Cada campo debe tener su tipo adecuado. Las fechas deben serde tipo fecha, los enteros de tipo entero, etc. No se debe permitir que todos los campos sean de tipo VARCHAR.
 2. Los campos nulos se deben controlar en origen y sólo permitirlos si tienen sentido en el modelo. Un campo nulo en un lugar que no corresponde debería ser algo a eliminar porque es un error.
@@ -20,14 +21,20 @@ WHERE ID_DIRECCION < 999998
 
 ### Master data
 Hay datos que son comunes a varios sitemas y deberían estar almacenados en tablas generales. El caso más claro sería CIUDADES_ESTADO y PAISES.
+
 Además tablas tales como PRODUCTOS, aunque en nuestro sistema no aparece, debería estar relacionana con las facturas (para hacer un desglose de los cargos).
+
 El ID_CLIENTE también es algo que debería ser compartido por todos los sistemas.
 
 ### Data Modeling & Design
 En primer lugar, como he dicho antes, los tipos de los campos deben ser los corresndientes a la realidad que están modelando.
+
 Además, todas las tablas deberían tener PRIMARY KEY.
-En las tablas y campos que corresponda debería haber FOREING KEYS (por ejemplo, la tabla de clientes debería estar relacionada con la de servicios y la de servicios con la de órdenes)
-Los datos que se repitan en las tablas deben ser sacados a otras tablas de dimensiones. Esto ahorra espacio e incoherencias (por ejemplo, el género en clientes)
+
+En las tablas y campos que corresponda debería haber FOREING KEYS (por ejemplo, la tabla de clientes debería estar relacionada con la de servicios y la de servicios con la de órdenes).
+
+Los datos que se repitan en las tablas deben ser sacados a otras tablas de dimensiones. Esto ahorra espacio e incoherencias (por ejemplo, el género en clientes).
+
 En resumen, habría que normalizar las correspondientes tablas, al menos hasta cierto punto.
 
 ## ¿Aconsejarías algun cambio en los sistemas origen extra, teniendo en cuenta el resto de disciplinas del Data Governance?
@@ -38,10 +45,12 @@ En resumen, habría que normalizar las correspondientes tablas, al menos hasta c
 
 ## Diseño Data Warehouse
 
-[Modelo DataWarehouse]()
+[Modelo DataWarehouse](https://github.com/ccalvomartinez/Data_Warehouse/blob/master/ModeloDatawarehouse.pdf)
 
 He añadido al modelo original una base de datos de informes porque dado el negocio que se maneja es muy probable que se necesiten informes de detalle de instalaciones, altas, bajas, etc.
+
 Además también habrá que generar informes de errores teniendo en cuenta las incoherencias que se han descubierto respecto a los servicios cuyos clientes no están en la tabla de clientes.
+
 Por otra parte he añadido las relaciones de integración entre los sistemas del negocio.
 
 ## Escribe tus propias reglas de un DataWarehouse.
